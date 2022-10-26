@@ -32,10 +32,26 @@ namespace book.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetBookById( int id)
+        public IActionResult GetBookById(int id)
         {
             var book = _bookService.GetBookById(id);
             return Ok(book);
         }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateBook(int id, [FromBody] BookVM book)
+        {
+            var updateBook = _bookService.UpdateBookById(id, book);
+           
+            return Ok(updateBook);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteBookById(int id)
+        {
+            _bookService.DeleteById(id);
+            return NoContent();
+        }
+
     }
 }
