@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(o => 
     o.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnectionString")));
 
-// Add services to the container.
+
 
 builder.Services.AddControllers();
 builder.Services.AddTransient<BookService>();
